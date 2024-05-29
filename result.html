@@ -1,0 +1,65 @@
+<!-- templates/result.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-right: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Result Page</h1>
+
+    <!-- Navigation Links -->
+    <a class="nav-link" href="{{ url_for('view_users') }}">View Users</a>
+    <a class="nav-link" href="{{ url_for('add_user') }}">Add User</a>
+
+    <h3>Received Data:</h3>
+    <p><strong>First Name:</strong> {{ user_data.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ user_data.last_name }}</p>
+    <p><strong>Age:</strong> {{ user_data.age }}</p>
+    <p><strong>Email:</strong> {{ user_data.email }}</p>
+    <p><strong>Phone Number:</strong> {{ user_data.phone_number }}</p>
+    <p><strong>Image Path:</strong> {{ user_data.image_path }}</p>
+
+    <!-- Display the image (if needed) -->
+    {% if user_data.image_path %}
+        <img src="{{ user_data.image_path }}" alt="Uploaded Image" style="max-width: 100%; margin-top: 10px;">
+    {% endif %}
+
+    <h3>Prediction Result:</h3>
+    <p>{{ prediction_result }}</p>
+</body>
+</html>
